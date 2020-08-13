@@ -77,12 +77,7 @@ def get_online_svd(user_id, movie_id, page):
 
     recent_mov_list = rated_list[np.argsort(rated_list[:, -1])[::-1][:5], :]
 
-    value1 = similarity.loc[mix_list, recent_mov_list[:, 1]].values.dot(recent_mov_list[:, 2])/np.sum(similarity.loc[mix_list, recent_mov_list[:, 1]].values, axis=1)
-    high_mov_list = recent_mov_list[:, 2] > 3
-    low_mov_list = recent_mov_list[:, 2] < 3
-    value2 = np.log(np.sum((similarity.loc[mix_list, recent_mov_list[:, 1]].values >= 0) * high_mov_list, axis=1)+1)
-    value3 = np.log(np.sum((similarity.loc[mix_list, recent_mov_list[:, 1]].values >= 0) * low_mov_list, axis=1)+1)
-    value = value1 + value2 - value3
+    value = similarity.loc[mix_list, recent_mov_list[:, 1]].values.dot(recent_mov_list[:, 2]) / np.sum(similarity.loc[mix_list, recent_mov_list[:, 1]].values, axis=1)
 
     rec_list = mix_list[np.argsort(value)[::-1][:5]]
     return rec_list
@@ -114,12 +109,7 @@ def get_online_nmf(user_id, movie_id, page):
 
     recent_mov_list = rated_list[np.argsort(rated_list[:, -1])[::-1][:5], :]
 
-    value1 = similarity.loc[mix_list, recent_mov_list[:, 1]].values.dot(recent_mov_list[:, 2]) / np.sum(similarity.loc[mix_list, recent_mov_list[:, 1]].values, axis=1)
-    high_mov_list = recent_mov_list[:, 2] > 3
-    low_mov_list = recent_mov_list[:, 2] < 3
-    value2 = np.log(np.sum((similarity.loc[mix_list, recent_mov_list[:, 1]].values >= 0) * high_mov_list, axis=1) + 1)
-    value3 = np.log(np.sum((similarity.loc[mix_list, recent_mov_list[:, 1]].values >= 0) * low_mov_list, axis=1) + 1)
-    value = value1 + value2 - value3
+    value = similarity.loc[mix_list, recent_mov_list[:, 1]].values.dot(recent_mov_list[:, 2]) / np.sum(similarity.loc[mix_list, recent_mov_list[:, 1]].values, axis=1)
 
     rec_list = mix_list[np.argsort(value)[::-1][:5]]
     return rec_list
