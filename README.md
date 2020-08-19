@@ -8,7 +8,7 @@
 
 ### 1、运行环境
 
-项目使用python3编写，另需numpy、pandas、requests、pillow、lxml包，数据库为MySQL，请事先配置上述环境
+项目使用python3编写，另需numpy、pandas、requests、pillow、lxml包，数据库为MySQL，请事先配置上述环境。
 
 ### 2、训练数据
 
@@ -20,7 +20,7 @@ simNMF.csv、pdtNMF.csv两个数据文件；
 运行algorithm.online文件，会在data文件夹下生成simOL.csv、
 pdtOL.csv两个数据文件；
 
-运行algorithm.readrating文件，会在data文件夹下生成movieidlist文件
+运行algorithm.readrating文件，会在data文件夹下生成movieidlist文件。
 
 ### 3、加载数据
 
@@ -28,11 +28,11 @@ pdtOL.csv两个数据文件；
 
 运行loaddata.loadbefore文件，会将links、movies、ratings、tags、users数据表载入数据库；
 
-运行loaddata.loadafter文件，会将simsvd、pdtsvd、simnmf、pdtnmf、simol、pdtol数据表载入数据库
+运行loaddata.loadafter文件，会将simsvd、pdtsvd、simnmf、pdtnmf、simol、pdtol数据表载入数据库。
 
 ### 4、运行项目
 
-运行gui.main文件，进入电影推荐系统
+运行gui.main文件，进入电影推荐系统。
 
 ## 附录（原理介绍）
 
@@ -44,4 +44,4 @@ pdtOL.csv两个数据文件；
 
 以相似度为权重，由已评分电影的评分计算未评分电影的预测分数，得到离线推荐；
 
-生成待推荐队列（老用户为离线推荐+最近评分电影的相似推荐、新用户为统计推荐），计算最近评分电影与之相似度x最近评分电影评分为推荐优先级，得到在线实时推荐
+生成待推荐队列（老用户为离线推荐+最近评分电影的相似推荐、新用户为统计推荐），计算最近评分电影与之相似度x最近评分电影评分为推荐优先级，得到在线实时推荐。
